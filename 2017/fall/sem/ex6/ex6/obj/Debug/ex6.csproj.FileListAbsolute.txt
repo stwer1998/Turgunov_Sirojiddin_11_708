@@ -1,0 +1,7 @@
+D:\my_project\PR\ex6\ex6\bin\Debug\ex6.exe.config
+D:\my_project\PR\ex6\ex6\bin\Debug\ex6.exe
+D:\my_project\PR\ex6\ex6\bin\Debug\ex6.pdb
+D:\my_project\PR\ex6\ex6\obj\Debug\ex6.csprojResolveAssemblyReference.cache
+D:\my_project\PR\ex6\ex6\obj\Debug\ex6.csproj.CoreCompileInputs.cache
+D:\my_project\PR\ex6\ex6\obj\Debug\ex6.exe
+D:\my_project\PR\ex6\ex6\obj\Debug\ex6.pdb

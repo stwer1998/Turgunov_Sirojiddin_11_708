@@ -1,0 +1,7 @@
+D:\my_project\PR\ex8\ex8\obj\Debug\ex8.csprojResolveAssemblyReference.cache
+D:\my_project\PR\ex8\ex8\obj\Debug\ex8.csproj.CoreCompileInputs.cache
+D:\my_project\PR\ex8\ex8\bin\Debug\ex8.exe.config
+D:\my_project\PR\ex8\ex8\bin\Debug\ex8.exe
+D:\my_project\PR\ex8\ex8\bin\Debug\ex8.pdb
+D:\my_project\PR\ex8\ex8\obj\Debug\ex8.exe
+D:\my_project\PR\ex8\ex8\obj\Debug\ex8.pdb

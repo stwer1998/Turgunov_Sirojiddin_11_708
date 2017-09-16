@@ -1,0 +1,7 @@
+D:\my_project\PR\ex4\ex4\obj\Debug\ex4.csprojResolveAssemblyReference.cache
+D:\my_project\PR\ex4\ex4\obj\Debug\ex4.csproj.CoreCompileInputs.cache
+D:\my_project\PR\ex4\ex4\bin\Debug\ex4.exe.config
+D:\my_project\PR\ex4\ex4\bin\Debug\ex4.exe
+D:\my_project\PR\ex4\ex4\bin\Debug\ex4.pdb
+D:\my_project\PR\ex4\ex4\obj\Debug\ex4.exe
+D:\my_project\PR\ex4\ex4\obj\Debug\ex4.pdb

@@ -1,0 +1,7 @@
+D:\my_project\PR\ex5\ex5\obj\Debug\ex5.csprojResolveAssemblyReference.cache
+D:\my_project\PR\ex5\ex5\obj\Debug\ex5.csproj.CoreCompileInputs.cache
+D:\my_project\PR\ex5\ex5\bin\Debug\ex5.exe.config
+D:\my_project\PR\ex5\ex5\bin\Debug\ex5.exe
+D:\my_project\PR\ex5\ex5\bin\Debug\ex5.pdb
+D:\my_project\PR\ex5\ex5\obj\Debug\ex5.exe
+D:\my_project\PR\ex5\ex5\obj\Debug\ex5.pdb
