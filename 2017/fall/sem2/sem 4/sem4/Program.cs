@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace sem4
 {
-    public class MyBigInteger
+    public class MyBigInteger//создаем клас BIgInteger
     {
         private List<int> arr = new List<int>();
-        public static MyBigInteger operator *(MyBigInteger a, MyBigInteger b)
+        public static MyBigInteger operator *(MyBigInteger a, MyBigInteger b)//оператор умножение
+        //умножение происходит по закону умножение столбиком
+        //1-ое число умножем на все числа другого массива
+        //со 2-ого умножем на все числа другого массива и результат умножем на 10 по закону умножение столбиком
         {
             MyBigInteger rez = new MyBigInteger(0);
             for (int i = 0; i < b.arr.Count(); i++)
@@ -23,7 +26,8 @@ namespace sem4
             }
             return rez;
         }
-        public static MyBigInteger operator *(MyBigInteger a, int b)
+        public static MyBigInteger operator *(MyBigInteger a, int b)//умножение BigInteger на число это легче чем BigInteger на BigInteger 
+        //если при умножение число получим больше 10 по запишем %10 а оставшее добавим следуюшиму разряду
         {
             if (b > 9)
             {
@@ -43,7 +47,10 @@ namespace sem4
             }
             return new MyBigInteger(v);
         }
-        public static MyBigInteger operator +(MyBigInteger a, MyBigInteger b)
+        public static MyBigInteger operator +(MyBigInteger a, MyBigInteger b)//оператор сложение
+         //сложение происходит по закону сложение столбиком
+         //если один из чисел больше другого чтобы было удобно добавим 0 до равенства
+         //если при сложенни число получим больше 10 по запишем %10 а оставшее добавим следуюшиму разряду
         {
             List<int> v = new List<int>();
             int c = 0;
@@ -81,11 +88,11 @@ namespace sem4
         {
             this.arr = arr;
         }
-        public MyBigInteger()
+        public MyBigInteger()//добавляем в лист
         {
             arr.Add(0);
         }
-        public MyBigInteger(int a)
+        public MyBigInteger(int a)//число сохраняем в лист
         {
            while (a != 0)
             {
@@ -97,7 +104,7 @@ namespace sem4
         {
             return a * a;
         }
-        public void print()
+        public void print()//Так число в лист сохранили в перевернутом виде print начинает выводить с конца
         {
             for (int i = arr.Count() - 1; i >= 0; i--)
             {

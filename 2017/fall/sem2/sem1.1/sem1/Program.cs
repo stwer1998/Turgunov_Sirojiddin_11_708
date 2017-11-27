@@ -15,13 +15,13 @@ namespace sem1
             + "определяемая как предел разности между частичной суммой гармонического ряда и натуральным логарифмом числа:");
             Console.WriteLine("Введите точность e: ");
             double e = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Введите число N Чем больше число тем точнее будет константа");
-            int n = Convert.ToInt32(Console.ReadLine());
+            int n = 0;
             double result = FindConstant(e, n);
             Console.WriteLine(result);
         }
         public static double FindConstant(double e, int n)
         {
+            double oldResult = 1;
             double result = 0;
             int k = 1;
             double h= 0;
@@ -32,8 +32,16 @@ namespace sem1
                 h += 1.0 / k;
                 k++;
             } while (Math.Abs(oldH - h) > e);//проверяем точность
-            Console.WriteLine("Шаг номер:  "+(k-1));
-            result = h - (Math.Log(n));//В википедие формула такая 
+            do
+            {
+                oldResult = result;
+                result = h - (Math.Log(n));
+                n++;
+            } while (Math.Abs(oldResult - result) > e); //проверяем точность
+            //В википедие формула такая 
+            Console.WriteLine("Шаг номер:  " + (n - 1));
+            Console.WriteLine(result);
+           
             return result;
         }
     }
