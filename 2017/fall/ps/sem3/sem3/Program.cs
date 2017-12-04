@@ -8,6 +8,7 @@ namespace sem3
 {
     class Program
     {
+	// ---check--- что-то не то ваш алгоритм делает
         static void Main(string[] args)
         {
             //Проверить, делится ли число в двоичной системе счисления на десятичное натуральное число k нацело
@@ -30,7 +31,8 @@ namespace sem3
             }
             else
             {
-                Console.WriteLine("YES");
+		// ---check--- как так и тут и тут YES?
+                Console.WriteLine("NO");
             }
             Console.ReadKey();
         }
