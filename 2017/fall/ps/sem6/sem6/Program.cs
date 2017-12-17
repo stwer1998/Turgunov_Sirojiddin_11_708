@@ -8,6 +8,7 @@ namespace sem6
 {
     class Program
     {
+	// ---check--- есть вариант намного проще  (A % 10)^[(B - 1) % 4 + 1] } % 10
         static void Main(string[] args)
         {
             //Найти последнюю цифру A^B (1<=A,B<=10000)
