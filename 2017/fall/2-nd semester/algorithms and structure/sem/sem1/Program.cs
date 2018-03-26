@@ -27,7 +27,8 @@ namespace MyDictionary
         }
     }
     public class MyDictionary
-    {  
+    {
+        static int num = 321;
         public static int[] keyspocket = new int[1000];//чтобы не занимать много памяти я исползовал
         // int в это массиве содержится ключи к элементам по hash. без массива можно пройтись но нужно создать пустые list 
         // из-за этого я считаю хранить ключи в массиве
@@ -52,26 +53,46 @@ namespace MyDictionary
                 key++;// чтобы не класть ещё раз сюда увеличиваем
             }
             else//а если по list не пуст d предположении, что словарь содержит большое количество слов, 
-               //которые имеют одинаковый перевод в другом языке,мы проверяем ключ и добавим новое значение
+                //которые имеют одинаковый перевод в другом языке,мы проверяем ключ и добавим новое значение
             {
                 var a = keyspocket[GetHash(Tkey)];
                 if (Equal(Tkey, a))
                 {
                     list[a].Add(word);
                 }
+                else
+                {//если хеш в разных словах одинаковы то мы буде переписать весь dictionary
+                 // по новому хешу так как из колиззиз не избежать
+                    var gar = new MyList<string>();
+                    for (int i = 1; i < keyspocket.Length; i++)
+                    {
+                        gar.Add(list[i][0]);
+                        gar.Add(list[i][1]);
+                    }
+                    num = num + 156;
+                    keyspocket = new int[1000];
+                    key = 1; list = new MyList<MyList<string>>();
+                    alikeWords = 0;
+                    for (int i = 0; i < gar.Count; i += 2)
+                    {
+                        Add(gar[i], gar[i + 1]);
+                    }
+                    gar = null;
+                }
             }
         }
         public static int GetHash(string keys)//создаем hash
         {
             var a = Math.Abs(keys.GetHashCode());
-            return ((a / 321) % 1000);//если использовать BigInteger и в претположеннии колизей мало
+            return ((a / num) % 1000);
+         //если использовать BigInteger и в претположеннии колизей мало
         }//можно намного оптимизировать придумав новый hash 
         public static bool Equal(string key, int a)
         {//если по hash уже есть элементы то срывниваем ключ
             var st = list[a][0];
             if (st.Length == key.Length) { return true; }//если ключ один и тот же предположении, 
-            //что словарь содержит большое количество слов, 
-           //которые имеют одинаковый перевод в другом языке,мы проверяем ключ и добавим новое значение
+                                                         //что словарь содержит большое количество слов, 
+                                                         //которые имеют одинаковый перевод в другом языке,мы проверяем ключ и добавим новое значение
             return false;//если ключи не совпадут используем другой hash которое даем меньше коллизий
         }
         public void Print(string Tkey)//этот метод по ключи выводит на экран ключ значение
@@ -88,7 +109,7 @@ namespace MyDictionary
                 }
             Console.WriteLine();
         }
-       
+
         public void Collector()//собираем слова которые имеют 1 значение
         {
             foreach (var item in list)
