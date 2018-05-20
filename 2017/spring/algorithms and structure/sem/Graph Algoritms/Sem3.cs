@@ -10,6 +10,7 @@ namespace ConsoleApp2
     {
         static void Main()
         {
+            //Тесты
             var a = new Graph();
             a.MakeGraph(4);
             a.Connect(0, 1, 1);
@@ -25,12 +26,21 @@ namespace ConsoleApp2
             }
             Console.WriteLine(  );
             Console.WriteLine();
-            var b = a.FordBellman(0);
-            foreach (var item in b)
+            var b = new Graph();
+            b.MakeGraph(4);
+            b.Connect(0, 1, 1);
+            b.Connect(0, 2, 2);
+            b.Connect(0, 3, 6);
+            b.Connect(1, 3, 4);
+            b.Connect(2, 3, 2);
+            b.Print();
+            Console.WriteLine();
+            Console.WriteLine();
+            var d = b.FordBellman(0);
+            foreach (var item in d)
             {
                 Console.WriteLine(item);
             }
-
         }
     }
     public class Graph//класс графа
