@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleApp2
 {
@@ -10,15 +7,15 @@ namespace ConsoleApp2
     {
         static void Main()
         {
-           
+            
         }
     }
     public class Graph//класс графа
     {
-        static int[][] graph;//сохраним граф в виде масрицы
+        static int[][] graph;//сохраним граф в виде матрицы
         static List<Tuple<int, int, int>> Edges = new List<Tuple<int, int, int>>();
         //лист ребер где item1  это начало ребра item2 конец ребра  item3 вес ребра
-        //здесь создаем массив и по умолчанию заполним большим числом
+        //здесь создаем массив и по умолчанию заполним большим числом так как если они не соединены то бесконечность
         public void MakeGraph(int numberNode)
         {
             graph = new int[numberNode][];
@@ -62,7 +59,8 @@ namespace ConsoleApp2
                 {
                     if (graph[i][j] + weight < graph[start][j])
                     {
-                        graph[start][j] = graph[i][j] + weight;//если через какуюта вершину путь короче то обновим
+                        graph[start][j] = graph[i][j] + weight;
+                        //если через какуюта вершину путь короче то обновим
                     }
                 }
             }
@@ -81,7 +79,7 @@ namespace ConsoleApp2
                 result[i] = graph[start][i];//
             }
             //
-            //берем начало ребра если до вершины есть путь
+            //берем начало ребра если до вершины есть путь и
             //если путь короче остальных то обновляем
             //
             for (int i = 0; i < graph.Length - 1; i++)
