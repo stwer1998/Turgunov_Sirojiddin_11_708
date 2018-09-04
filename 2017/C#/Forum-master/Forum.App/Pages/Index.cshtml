@@ -1,0 +1,19 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@foreach (var item in Model.Subforums)
+{
+    <div class="row">
+        <div class="card col-lg-12" style="width: 18rem;">
+            <div class="card-header">
+                @item.Name
+            </div> 
+            <div class="card-body">
+                <a href="/SubforumView/SubforumView?forumid=@item.Id" class="btn">Go to forum</a>
+            </div>
+        </div>
+    </div>
+}

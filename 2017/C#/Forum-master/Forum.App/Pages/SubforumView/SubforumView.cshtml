@@ -1,0 +1,24 @@
+@page
+@model Forum.App.Pages.SubforumView.SubforumModel
+@{
+    ViewData["Title"] = "Subforum";
+}
+
+<h2>Subforum</h2>
+<div class="row">
+    @foreach (var item in Model.SubjectsWithMessages)
+    {
+    <div class="card col-lg-12" style="width: 18rem;">
+        <div class="card-header">
+            @item.Name
+        </div>
+        <ul class="list-group list-group-flush">
+            @foreach (var msg in item.Messages)
+            {
+                <li class="list-group-item">@msg.Text</li>
+            }
+        </ul>
+        <a href="/Messages/Index" class="btn">Add message</a>
+    </div>
+    }
+</div>
