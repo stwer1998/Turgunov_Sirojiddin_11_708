@@ -45,4 +45,10 @@ ALTER TABLE Movies
 ADD FOREIGN KEY (Movie_id) REFERENCES Genres(Genres_ID);
 GO
 
+--"связь многи ко многим"
+CREATE TABLE Movies_to_Producer(
+Id INT NOT NULL PRIMARY KEY,
+Movie_id INT NOT NULL FOREIGN KEY REFERENCES Movies(Movie_id),
+ActorID INT NOT NULL FOREIGN KEY REFERENCES Producer(ID))
+
 
