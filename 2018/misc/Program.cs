@@ -10,8 +10,9 @@ namespace Wether
     {
         static void Main(string[] args)
         {
+            string city = Convert.ToString(Console.ReadLine());
 
-            Wether("Kazan");
+            Wether(city);
         }
 
         public static void Wether(string city)
