@@ -79,7 +79,7 @@ namespace DataBaseApi
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    //var sel = "select * from Movies as m where m.Year<'1999-01-01'";
+                    //var sel = "select * from Movies as*\/* m where m.Year<'1999-01-01'";
                     var sel = "SELECT * FROM " + tablename + " WHERE " + condition;
                     SqlCommand command = new SqlCommand(sel, connection);
                     try
@@ -107,20 +107,26 @@ namespace DataBaseApi
         }
         public static bool CheckSqlInjection(string str)
         {
-            char a = ';';
-            char b = '\'';
+            char semicolon = ';';
+            char slash = '\'';
+            char hypen = '-';
             bool c = false;
             for (int i = 0; i < str.Length; i++)
             {
-                if (str[i] == a)
+                if (str[i] == semicolon)
                 {
                     if (c) { return true; }
                     return false;
                 }
-                if (str[i] == b)
+                if (str[i] == slash)
                 {
                     if (c) { c = false; }
                     else c = true;
+                }
+                if (i != str.Length-2&&(str[i]==hypen&&str[i+1]==hypen)||(str[i]=='/'&&str[i+1]=='*'))
+                {
+                    if (c) { return true; }
+                    return false;
                 }
             }
             return true;
