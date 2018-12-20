@@ -8,8 +8,12 @@ namespace Commpressor
 {
     public class LZWCompressor : ITextCommpressor
     {     
+
+        //здесь сжимаются файлы не стал коменнтировать
+        //алгоритм про него мохно везде прочитать
+        //
         public string Commpres(object obj)
-        {
+        {//принимаем object потомучто этот алгоритм сжимает не только текстовые файлы
             if (obj.ToString() == "TextDocument")
             {
                 return Compressor((TextDocument)obj);

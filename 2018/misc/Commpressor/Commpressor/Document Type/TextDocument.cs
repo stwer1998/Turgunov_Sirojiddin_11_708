@@ -9,6 +9,7 @@ namespace Commpressor
 {
     public class TextDocument
     {
+        //здесь прикрепляем информации
         public override string ToString()
         {
             return "TextDocument";

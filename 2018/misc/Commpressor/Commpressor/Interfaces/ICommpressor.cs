@@ -8,6 +8,8 @@ namespace Commpressor
 {
     public interface ICommpressor
     {
+        //общий интерфейс для всех 
+        //потомучто все эти алгоритмы должны сжимать и распаковывать
         /// <summary>
         /// Сжимает данные и записывает в файл
         /// </summary>
