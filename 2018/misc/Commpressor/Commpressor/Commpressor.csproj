@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Brain.cs" />
+    <Compile Include="Document Type\IDocument1.cs" />
     <Compile Include="Interfaces\ICommpressor.cs" />
     <Compile Include="Compressors\LZWCompressor.cs" />
     <Compile Include="Interfaces\ITextCommpressor.cs" />

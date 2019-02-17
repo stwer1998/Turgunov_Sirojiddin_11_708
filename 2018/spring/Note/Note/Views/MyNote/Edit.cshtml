@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+<form action="CreateNote" method="post">
+    <input type="text" name="name" placeholder="Note name" value="@ViewData["name"]" />
+    <br>
+    <div>
+        <textarea name="text" cols="60" placeholder="Text" style="height: 200px;">@ViewData["text"]</textarea>
+        <div class="comments__rules alert alert-warning">
+        </div>
+        <input type="submit" value="Save" />
+    </div>
+</form>
