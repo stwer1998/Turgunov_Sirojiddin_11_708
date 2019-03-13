@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Note.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,10 +10,13 @@ namespace Note.Controllers
 {
     public class Methods
     {
+        
+
         static string path = @"D:\Notes\Note\";
         static string ending = ".txt";
         public static List<string> GetNoteList()
         {
+            //return db
             List<string> names = new List<string>();
             foreach (string item in Directory.GetFiles(path))
             {

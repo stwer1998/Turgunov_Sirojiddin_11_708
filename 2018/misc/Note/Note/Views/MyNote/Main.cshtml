@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Main";
+}
+
+<h2>Main</h2>
+
+
+@for (int i = 0; i < ViewBag.Id.Count; i++)
+{
+<a href="MyNote/Note?id=@ViewBag.Id[i]">@ViewBag.Names[i]</a><br />
+}
+

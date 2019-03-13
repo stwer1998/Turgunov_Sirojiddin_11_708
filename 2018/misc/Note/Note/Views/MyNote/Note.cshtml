@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "Note";
+}
+
+<h2>Note</h2>
+
+<h3>@ViewData["name"]</h3>
+<form>
+    <br>
+    <div>
+        <textarea name="text" cols="60" placeholder="Text" readonly style="height: 200px;">@ViewData["text"]
+        </textarea>
+    </div>
+    <button type="submit" formmethod="post" formaction="Edit?id=@ViewData["id"]">Edit</button>
+    <button type="submit" formmethod="post" formaction="Delete?id=@ViewData["id"]">Delete</button>
+    <button type="submit" formmethod="post" formaction="GetFile?id=@ViewData["id"]">Download</button>
+</form>
