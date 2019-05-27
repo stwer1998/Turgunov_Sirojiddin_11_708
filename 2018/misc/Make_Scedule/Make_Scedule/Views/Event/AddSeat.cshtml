@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewData["Title"] = "AddSeat";
+}
+
+@model Entities.Seat
+<h2>AddSeat</h2>
+
+<form asp-antiforgery="true" asp-action="AddSeat" asp-controller="Event">
+    <div>
+        <div class="validation" asp-validation-summary="ModelOnly"></div>
+        <div>
+            <label> Номер Категори</label><br />
+            <input type="number" asp-for="Category" />
+            <span asp-validation-for="Category"></span>
+        </div>
+        <div>
+            <label> Сколько мест,</label><br />
+            <input type="number" asp-for="Quantity" />
+            <span asp-validation-for="Quantity"></span>
+        </div>
+        <div>
+            <label>Какие удобства</label><br />
+            <textarea type="text" asp-for="Description" /></textarea>
+            <span asp-validation-for="Description"></span>
+        </div>
+        <div>
+            <input type="submit" value="Save" />
+        </div>
+    </div>
+</form>
+
+
+
+@section scripts{
+
+    <environment names="Development">
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"
+                asp-fallback-src="~/lib/jquery-validation/dist/jquery.validate.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validator">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"
+                asp-fallback-src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive">
+        </script>
+    </environment>
+}

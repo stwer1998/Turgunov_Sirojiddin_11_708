@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewData["Title"] = "Settings";
+}
+@model Entities.Event
+<h2>Settings</h2>
+
+<h1>@Model.Name</h1>
+<h3>Начало в @Model.Start  - Конец в @Model.End</h3>
+<h3>Адрес : @Model.Address</h3>
+<h3>@Model.Description</h3>
+
+@for (int i = 0; i < Model.Participants.Count; i++)
+{
+    <h5> @Model.Participants[i].Name - @Model.Participants[i].Surname</h5>
+    <a asp-controller="Event" asp-action="EditParticipant" asp-route-id_evet="@Model.Id" asp-route-id="@Model.Participants[i].Id">Редактировать</a>
+    <a asp-controller="Event" asp-action="DeleteParticipant" asp-route-id_event="@Model.Id" asp-route-id_per="@Model.Participants[i].Id">Удалить</a>
+    <a asp-controller="Event" asp-action="AddimgParAsync" asp-route-event_id="@Model.Id" asp-route-p_id="@Model.Participants[i].Id">Добавить фото</a>
+}
+<br/>
+<a asp-controller="Event" asp-action="AddParticipant" asp-route-event_id="@Model.Id">Добавить спикера</a>
+
+

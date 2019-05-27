@@ -1,0 +1,27 @@
+﻿@model Entities.Event
+@{
+    ViewData["Title"] = "Event";
+}
+
+<h2>Event</h2>
+
+<h1>@Model.Name</h1>
+<h3>Начало в @Model.Start  - Конец в @Model.End</h3>
+<h3>Адрес : @Model.Address</h3>
+<h3>@Model.Description</h3>
+@if (Model.Participants != null)
+{
+    <h4>Участники:</h4>
+    foreach (var item in Model.Participants)
+    {
+        if (item.Image != null)
+        {
+            <img src="@item.Image.Path" width="80" height="80"/>
+        }
+        <h4>@item.Name   @item.Surname</h4>
+        <h4>@item.Description</h4>
+        <h4>Начало в @item.Start  - Конец в @item.End</h4>
+    }
+}
+
+        <a class="btn" href="AddViewer?id=@Model.Id">Регистрация</a>

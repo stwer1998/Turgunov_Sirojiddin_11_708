@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "Event";
+}
+
+<h2>Event</h2><br />
+
+<h3>@ViewBag.name</h3>
+
+<a href="Settings?id_event=@ViewBag.id">Настройки</a>
+<div>
+    <h3>Список зрителей</h3>
+    <ol>
+        @foreach (var item in ViewBag.viewers)
+        {
+            <li>@item.Name @item.Lastname @item.Email</li>
+        }
+    </ol>
+</div>

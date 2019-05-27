@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewData["Title"] = "AddEvent";
+}
+@model Entities.Event
+<h2>AddEvent</h2>
+
+<form asp-antiforgery="true" asp-action="AddEvent" asp-controller="Event">
+    <div>
+        <div class="validation" asp-validation-summary="ModelOnly"></div>
+        <div>
+            <label>Название мероприятие</label><br />
+            <input type="text" asp-for="Name" />
+            <span asp-validation-for="Name"></span>
+        </div>
+        <div>
+            <label>Раскажите цель мероприятие</label><br />
+            <textarea type="text" asp-for="Description" /></textarea>
+            <span asp-validation-for="Description"></span>
+        </div>
+
+        <div>
+            <label>Где будет проводиться мероприятие(адрес)</label><br />
+            <input type="text" asp-for="Address" />
+            <span asp-validation-for="Address"></span>
+        </div>
+        <div>
+            <label>Начало мероприятие</label><br />
+            <input type="datetime-local" asp-for="Start" />
+            <span asp-validation-for="Start"></span>
+        </div>
+        <div>
+            <label>Конец мероприятие</label><br />
+            <input type="datetime-local" asp-for="End" />
+            <span asp-validation-for="End"></span>
+        </div><br />
+
+              <button id="btn1" type="button">Добавить билет</button><br/>
+              <button id="btn2" type="button">Добавить спикера</button>
+        <div>
+            <input type="submit" value="Save" />
+        </div>
+
+    </div>
+</form>
+
+
+@section scripts{
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        count1 = 0;
+        count2 = 0;
+        function AddNum() { count1 += 1; }
+        function Addnum2() { count2 += 1; }
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                $("#btn1").before('<div> <div> <label> Номер Категори</label><br /> <input type="number" data-val="true" data-val-required="&#x41D;&#x435; &#x443;&#x43A;&#x430;&#x437;&#x430;&#x43D;&#x43E; &#x43A;&#x430;&#x442;&#x435;&#x433;&#x43E;&#x440;&#x438;&#x44F;" id="Category" name="Category[' + count1 + ']" value="" /> <span class="field-validation-valid" data-valmsg-for="Category" data-valmsg-replace="true"></span> </div> <div> <label> Сколько мест</label><br /> <input type="number" data-val="true" data-val-required="&#x41D;&#x435; &#x443;&#x43A;&#x430;&#x437;&#x430;&#x43D;&#x43E; &#x43A;&#x43E;&#x43B;&#x438;&#x447;&#x435;&#x441;&#x442;&#x432;&#x43E;" id="Quantity" name="Quantity[' + count1 + ']" value="" /> <span class="field-validation-valid" data-valmsg-for="Quantity" data-valmsg-replace="true"></span> </div> <div> <label>Какие удобства</label><br /> <textarea type="text" id="Description" name="Description[' + count1 + ']" /></textarea> <span class="field-validation-valid" data-valmsg-for="Description" data-valmsg-replace="true"></span> </div> </div> <input name="__RequestVerificationToken" type="hidden" value="CfDJ8AXE_Ro4khdBl2L0YAap1hBYVju_i48Tb19mTqsV8T_xBQ8jPW5IeB02O5suALnTtNbWv7KsqMtlFeJ2CmFlwI4FQTDzUyORb0-dm4eTiLtvrFcdujDDFgwtD0XZvUcp8aQUWG6Rm6gK9eak23PPhi4t5zNVtZEjv6SNP9AvO9l0NfKVGiONw1ikf8F28tDPtA" />'); AddNum()
+            });
+            $("#btn2").click(function () {
+                $("#btn2").before('<div> <div> <label>Имя спикера </label><br /> <input type="text" data-val="true" data-val-required="&#x41D;&#x435; &#x443;&#x43A;&#x430;&#x437;&#x430;&#x43D;&#x43E; &#x43D;&#x430;&#x437;&#x432;&#x430;&#x43D;&#x438;&#x435;" id="Name" name="Name[' + count2 + ']" value="" /> <span class="field-validation-valid" data-valmsg-for="Name" data-valmsg-replace="true"></span> </div> <div> <label>Фамилия спикера</label><br /> <input type="text" id="Surname" name="Surname[' + count2 + ']" value="" /> <span class="field-validation-valid" data-valmsg-for="Surname" data-valmsg-replace="true"></span> </div> <div> <label>Тема рассказа</label><br /> <textarea type="text" id="Description" name="Description[' + count2 + ']" /></textarea> <span class="field-validation-valid" data-valmsg-for="Description" data-valmsg-replace="true"></span> </div> <div> <label>Начало </label><br /> <input type="datetime-local" data-val="true" data-val-required="&#x41D;&#x435; &#x443;&#x43A;&#x430;&#x437;&#x430;&#x43D;&#x43E; &#x43D;&#x430;&#x447;&#x430;&#x43B;&#x43E;" id="Start" name="Start[' + count2 + ']" value="" /> <span class="field-validation-valid" data-valmsg-for="Start" data-valmsg-replace="true"></span> </div> <div> <label>Конец </label><br /> <input type="datetime-local" data-val="true" data-val-required="&#x41D;&#x435; &#x443;&#x43A;&#x430;&#x437;&#x430;&#x43D;&#x43E; &#x43A;&#x43E;&#x43D;&#x435;&#x446;" id="End" name="End[' + count2 + ']" value="" /> <span class="field-validation-valid" data-valmsg-for="End" data-valmsg-replace="true"></span> </div> </div> <input name="__RequestVerificationToken" type="hidden" value="CfDJ8AXE_Ro4khdBl2L0YAap1hDnbGuJBPTqgEb_xyICZDpeusEI1HbIaqbzU1HtX-3av_QQgnB7-7eZqCfQFWfgyO4d6QsCTL9GaZcYn7mIWCdVtrXCmkPsekEH7E5I11p-mI69jrFQn1Hdkm6H4Ydikje1LkY1UiSPleYPRrbbWUqoJIgJBeooUpQSjtkkiPjyWA" />'); Addnum2()
+            });
+        });
+    </script>
+    <environment names="Development">
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"
+                asp-fallback-src="~/lib/jquery-validation/dist/jquery.validate.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validator">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"
+                asp-fallback-src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive">
+        </script>
+    </environment>
+}

@@ -1,0 +1,42 @@
+﻿@model Entities.Participant
+@{
+    ViewData["Title"] = "EditParticipant";
+}
+
+<h2>EditParticipant</h2>
+
+<form asp-antiforgery="true" asp-action="EditParticipant" asp-controller="Event">
+    <div>
+        <div class="validation" asp-validation-summary="ModelOnly"></div>
+        <div>
+            <label>Имя спикера </label><br />
+            <input type="text" asp-for="Name" value="@Model.Name" />
+            <span asp-validation-for="Name"></span>
+        </div>
+        <div>
+            <label>Фамилия спикера</label><br />
+            <input type="text" asp-for="Surname" value="@Model.Surname"/>
+            <span asp-validation-for="Surname"></span>
+        </div>
+
+        <div>
+            <label>Тема рассказа</label><br />
+            <textarea type="text" asp-for="Description" />@Model.Description</textarea>
+            <span asp-validation-for="Description"></span>
+        </div>
+        <div>
+            <label>Начало </label><br />
+            <input type="datetime-local" asp-for="Start" value="@Model.Start" />
+            <span asp-validation-for="Start"></span>
+        </div>
+        <div>
+            <label>Конец </label><br />
+            <input type="datetime-local" asp-for="End" value="@Model.End"/>
+            <span asp-validation-for="End"></span>
+        </div>
+
+        <div>
+            <input type="submit" value="Save" />
+        </div>
+    </div>
+</form>

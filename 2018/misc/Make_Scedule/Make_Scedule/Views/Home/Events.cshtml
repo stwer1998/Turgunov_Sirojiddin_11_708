@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewData["Title"] = "Events";
+}
+
+<h2>Events</h2>
+
+@for (int i = 0; i < ViewBag.id.Count; i++)
+{
+    <a href="Home/Event?id=@ViewBag.id[i]"> @ViewBag.Name[i]</a><br />
+}
+

@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewData["Title"] = "AddViewer";
+}
+@model Entities.Viewer
+<h2>AddViewer</h2>
+<form asp-antiforgery="true" asp-action="AddViewer" asp-controller="Home">
+    <div>
+        <div class="validation" asp-validation-summary="ModelOnly"></div>
+        <div>
+            <label for="Name">Имя</label><br />
+            <input type="text" name="model.Name" />
+            <span asp-validation-for="Name"></span>
+        </div>
+        <div>
+            <label for="Lastname">Фамилия</label><br />
+            <input type="text" name="model.Lastname" />
+            <span asp-validation-for="Lastname"></span>
+        </div>
+        <div>
+            <label for="Email">E-mail</label><br />
+            <input type="email"name="model.Email" />
+            <span asp-validation-for="Email"></span>
+        </div>
+        <div>
+            <label>Какая категория* </label><br />
+            <input type="number" name="model.Ticket.Category" />
+        </div>
+        <div>
+            <input type="hidden" name="id_event" value="@ViewBag.id" />
+        </div>
+    </div>
+    <input type="submit" value="Save" />
+</form>
+
+@section scripts{
+    <environment names="Development">
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"
+                asp-fallback-src="~/lib/jquery-validation/dist/jquery.validate.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validator">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"
+                asp-fallback-src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive">
+        </script>
+    </environment>
+}

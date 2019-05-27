@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewData["Title"] = "AddimgParAsync";
+}
+
+<h2>AddimgParAsync</h2>
+
+<form asp-controller="Event" asp-action="AddimgParAsync"  method="post" enctype="multipart/form-data">
+    <input type="hidden" name="event_id" value="@ViewBag.event_id" />
+    <input type="hidden" name="p_id" value="@ViewBag.p_id" />
+    <input type="file" name="file" accept="image/*" /><br />
+    <input type="submit" value="download" />
+</form>
