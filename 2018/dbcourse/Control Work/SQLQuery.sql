@@ -1,0 +1,1 @@
+SELECT p.ProductName,c.CategoryName FROM Products AS p LEFT OUTER JOIN Category AS c ON p.IdCategory=c.IdCategory
